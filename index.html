@@ -294,7 +294,7 @@
     .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.in { opacity: 1; transform: none; }
 
-    /* ── RESPONSIVE ── */
+    /* ── RESPONSIVE — tablet ── */
     @media (max-width: 1024px) {
       section, nav { padding-left: 32px; padding-right: 32px; }
       hr.rule { margin: 0 32px; }
@@ -310,18 +310,87 @@
       .cf-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 14px; text-align: center; padding: 28px; }
     }
+
+    /* ── RESPONSIVE — mobile ── */
     @media (max-width: 640px) {
-      section { padding: 64px 20px; }
-      #hero { padding: 100px 20px 56px; }
+      /* Base */
+      section { padding: 56px 18px; }
+      hr.rule { margin: 0 18px; }
+      #hero { padding: 90px 18px 48px; }
+
+      /* Nav */
+      nav { padding: 16px 18px; }
       .nav-links { display: none; }
       .nav-social { display: none; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .ach-grid-3, .ach-grid-2 { grid-template-columns: 1fr; }
-      .exp-card { flex-direction: column; }
-      .exp-header { flex-direction: column; }
-      .exp-meta { align-items: flex-start; }
-      .contact-form-wrap { padding: 28px 20px; }
+      .nav-logo { font-size: 1.1rem; }
+
+      /* Hero */
+      .hero-inner { grid-template-columns: 1fr; gap: 0; }
+      .hero-photo-wrap { display: block; margin: 28px auto 0; }
+      .hero-photo-ring {
+        width: 100%; max-width: 320px; height: auto;
+        aspect-ratio: 3/4; margin: 0 auto; display: block;
+      }
+      .hero-photo-ring img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: top center;
+      }
+      .hero-photo-wrap::before { display: none; }
+      .hero-name { font-size: clamp(2.4rem, 10vw, 3.2rem); }
+      .hero-p { font-size: 0.92rem; max-width: 100%; }
+      .hero-actions { flex-direction: column; gap: 10px; }
+      .btn-primary, .btn-outline { width: 100%; justify-content: center; padding: 13px 20px; }
+      .hero-socials { gap: 14px; flex-wrap: wrap; }
+      .hero-stats { gap: 0; flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+      .hstat { min-width: 80px; padding-right: 16px; margin-right: 16px; }
+      .hstat-n { font-size: 1.5rem; }
+
+      /* About */
+      #about { padding: 56px 18px; }
+      .about-grid { max-width: 100%; }
+      .about-h { font-size: clamp(1.5rem, 6vw, 2rem); }
+      .about-p { font-size: 0.9rem; }
+
+      /* Skills */
+      .skills-grid { grid-template-columns: 1fr; gap: 14px; }
+      .skill-card { padding: 22px 18px; }
+
+      /* Projects */
+      .projects-grid { grid-template-columns: 1fr; gap: 18px; }
+      .proj-img { aspect-ratio: 16/9; }
+      .proj-body { padding: 18px; }
+      .proj-name { font-size: 1.05rem; }
+
+      /* Experience */
+      .exp-card { flex-direction: column; gap: 16px; padding: 22px 18px; }
+      .exp-logo { width: 48px; height: 48px; font-size: 0.85rem; }
+      .exp-header { flex-direction: column; gap: 8px; }
+      .exp-meta { align-items: flex-start; flex-direction: row; gap: 10px; }
+      .exp-role { font-size: 1.1rem; }
+      .exp-bullets li { font-size: 0.82rem; }
+
+      /* Achievements */
+      .ach-grid-3, .ach-grid-2 { grid-template-columns: 1fr; gap: 14px; }
+      .ach-card { padding: 22px 18px; }
+      .ach-card-full { flex-direction: column; gap: 12px; padding: 22px 18px; }
+      .ach-subsec-title { font-size: 1.15rem; }
+
+      /* Contact */
+      .contact-cards { grid-template-columns: 1fr; gap: 12px; }
+      .contact-card { padding: 20px; }
+      .contact-form-wrap { padding: 24px 16px; border-radius: 14px; }
+      .cf-grid { grid-template-columns: 1fr; gap: 12px; }
+      .cf-title { font-size: 1.2rem; }
+      .cf-input, .cf-textarea { font-size: 0.88rem; padding: 11px 14px; }
+
+      /* Section headers */
+      .sec-header { margin-bottom: 40px; }
+      .sec-title { font-size: clamp(1.7rem, 7vw, 2.2rem); }
+      .sec-sub { font-size: 0.88rem; }
+
+      /* Footer */
+      footer { flex-direction: column; gap: 12px; padding: 24px 18px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
     }
   </style>
 </head>
