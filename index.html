@@ -127,7 +127,7 @@
     .sec { padding: 88px 0; }
     .sec-alt { background: var(--bg2); }
     .sec-header { margin-bottom: 44px; max-width: 640px; }
-    .sec-label { font-size: 0.97rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+    .sec-label { font-size: 1.095rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
     .sec-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 3.6vw, 2.6rem); line-height: 1.12; letter-spacing: -0.02em; }
     .sec-sub { font-size: 0.95rem; color: var(--muted); margin-top: 10px; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
@@ -186,8 +186,7 @@
     .skill-group { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
     .skill-group h3 { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
     .skill-group .tags li { color: var(--text); background: var(--bg2); border-color: var(--line); font-weight: 500; font-size: 0.78rem; padding: 4px 11px; }
-    .skills-note { margin-top: 20px; font-size: 0.9rem; color: var(--muted); }
-    .skills-note b { color: var(--text); font-weight: 600; }
+    .skill-group.full { grid-column: 1 / -1; }
 
     /* ── ABOUT ── */
     .about-grid { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: start; }
@@ -665,27 +664,38 @@
   <div class="wrap">
     <div class="sec-header">
       <p class="sec-label">Skills</p>
-      <h2 class="sec-title">What I work with</h2>
+      <h2 class="sec-title">Tools and technologies</h2>
     </div>
     <div class="skills-grid">
       <div class="skill-group">
         <h3>Languages</h3>
-        <ul class="tags"><li>Python</li><li>C#</li><li>Java</li><li>C++</li><li>JavaScript</li><li>SQL</li><li>PHP</li></ul>
+        <ul class="tags"><li>Python</li><li>Java</li><li>C++</li><li>C#</li><li>JavaScript</li><li>PHP</li><li>SQL</li></ul>
       </div>
       <div class="skill-group">
-        <h3>AI and ML</h3>
-        <ul class="tags"><li>scikit-learn</li><li>XGBoost</li><li>pandas</li><li>NumPy</li><li>LangGraph</li><li>RAG</li><li>ChromaDB</li><li>FAISS</li><li>Sentence-Transformers</li><li>Groq API</li><li>MLflow</li></ul>
+        <h3>Generative AI and agentic development</h3>
+        <ul class="tags"><li>LangGraph</li><li>LangChain</li><li>RAG</li><li>AI agents</li><li>Prompt engineering</li><li>LLM APIs (Groq, Claude, Ollama)</li><li>Sentence-Transformers</li><li>AI-assisted debugging and refactoring</li></ul>
       </div>
       <div class="skill-group">
-        <h3>Backend and web</h3>
-        <ul class="tags"><li>FastAPI</li><li>Flask</li><li>ASP.NET Core MVC</li><li>EF Core</li><li>REST</li><li>WebSockets</li><li>React</li><li>Streamlit</li></ul>
+        <h3>Machine learning</h3>
+        <ul class="tags"><li>scikit-learn</li><li>XGBoost</li><li>pandas</li><li>NumPy</li><li>Feature engineering</li><li>Ensembles</li><li>Model evaluation</li><li>MLflow</li><li>SHAP</li><li>LIME</li></ul>
       </div>
       <div class="skill-group">
-        <h3>Data and DevOps</h3>
-        <ul class="tags"><li>MySQL</li><li>Oracle</li><li>SQLite</li><li>Docker</li><li>Kubernetes</li><li>Prometheus</li><li>GitHub Actions</li><li>Git</li></ul>
+        <h3>Web development</h3>
+        <ul class="tags"><li>FastAPI</li><li>Flask</li><li>ASP.NET Core MVC</li><li>EF Core</li><li>REST APIs</li><li>WebSockets</li><li>Authentication and RBAC</li><li>React</li><li>HTML/CSS</li><li>pytest</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Databases</h3>
+        <ul class="tags"><li>Oracle</li><li>MySQL</li><li>SQLite</li><li>SQL schema design and normalisation</li><li>ChromaDB</li><li>FAISS</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Tools</h3>
+        <ul class="tags"><li>Docker</li><li>Kubernetes</li><li>Prometheus</li><li>Git</li><li>GitHub Actions (CI/CD)</li><li>Streamlit</li></ul>
+      </div>
+      <div class="skill-group full">
+        <h3>CS fundamentals</h3>
+        <ul class="tags"><li>Data structures and algorithms</li><li>Object-oriented programming</li><li>DBMS</li><li>Operating systems</li><li>Computer networks</li></ul>
       </div>
     </div>
-    <p class="skills-note"><b>CS fundamentals:</b> data structures and algorithms, OOP, DBMS, operating systems, computer networks.</p>
   </div>
 </section>
 
