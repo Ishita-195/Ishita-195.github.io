@@ -127,7 +127,7 @@
     .sec { padding: 88px 0; }
     .sec-alt { background: var(--bg2); }
     .sec-header { margin-bottom: 44px; max-width: 640px; }
-    .sec-label { font-size: 0.845rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+    .sec-label { font-size: 0.97rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
     .sec-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 3.6vw, 2.6rem); line-height: 1.12; letter-spacing: -0.02em; }
     .sec-sub { font-size: 0.95rem; color: var(--muted); margin-top: 10px; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; }
@@ -178,6 +178,8 @@
     .exp ul.points li { font-size: 0.9rem; color: var(--muted); line-height: 1.65; padding-left: 16px; position: relative; }
     .exp ul.points li::before { content: '›'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
     .exp ul.points a { color: var(--green); font-weight: 600; }
+    .exp-sub { font-size: 0.95rem; font-weight: 600; color: var(--text); margin: 4px 0 10px; }
+    .exp ul.points + .exp-sub { margin-top: 20px; }
 
     /* ── SKILLS ── */
     .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -547,10 +549,10 @@
           <h3>Used-car price prediction</h3>
           <p class="feat-problem">Estimates the resale price of a used car in India from its specs, age and mileage.</p>
           <ul class="built">
-            <li>Cleaned about 5,000 CarDekho listings, log-transformed price and kilometres driven, derived car age, and one-hot encoded brand, model, fuel and transmission, turning 13 raw columns into 60+ features.</li>
-            <li>Compared a linear-regression baseline with XGBoost, tuned XGBoost with 5-fold cross-validation, and served the final model in a Streamlit app.</li>
+            <li>Cleaned 15,411 CarDekho listings (1,386 price outliers removed), log-transformed price and kilometres driven, derived car age, and one-hot encoded brand, model, fuel, seller and transmission into 125 features.</li>
+            <li>Compared six regressors from linear regression to XGBoost, tuned XGBoost with 5-fold randomised search, and served the final model in a Streamlit app.</li>
           </ul>
-          <p class="feat-result"><b>Result:</b> R² of 0.85 against 0.72 for linear regression. RMSE fell 28%, from ₹5.10 lakh to ₹3.67 lakh.</p>
+          <p class="feat-result"><b>Result:</b> R² of 0.83 against 0.74 for linear regression, and 20% lower RMSE on log price. Every cross-validation fold scored between 0.82 and 0.83.</p>
           <ul class="tags"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>XGBoost</li><li>Streamlit</li></ul>
           <div class="proj-links">
             <a class="proj-link primary" href="https://cardekho-price-predictor.streamlit.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
@@ -619,11 +621,15 @@
           <span class="exp-date">May 2026 – Jun 2026</span>
         </div>
         <p class="exp-org">IFFCO <span>· Paradeep, Odisha</span></p>
+        <p class="exp-sub">Student result and attendance system (later ClassLedger)</p>
         <ul class="points">
-          <li>Built ClassLedger, a student result and attendance system in ASP.NET Core MVC (C#) on a six-table Oracle schema covering users, classes, subjects, students, marks and attendance.</li>
-          <li>Added role-based login with separate dashboards for admins, teachers and students, so each role can reach only its own records.</li>
+          <li>Built a web app for schools in ASP.NET Core MVC (C#, .NET Core 2.1) with Razor views and Bootstrap.</li>
+          <li>Designed the Oracle schema: six tables (users, classes, subjects, students, marks and attendance) linked by primary and foreign keys, accessed through Entity Framework Core with Devart&#39;s Oracle provider.</li>
+          <li>Added session-based login with three roles. Admins manage classes and subjects, admins and teachers manage students, marks and attendance, and each student sees only their own report card.</li>
+          <li>Built the main screens: a dashboard with student, class, subject and attendance counts, a student roster with add and delete, marks entry by exam type (unit test, mid term, final), daily attendance (present, absent, leave), and a student report card that combines marks and attendance.</li>
+          <li>After the internship I moved it to .NET 8 and SQLite and added an analytics page. That version is the ClassLedger project above.</li>
         </ul>
-        <ul class="tags"><li>C#</li><li>ASP.NET Core MVC</li><li>Oracle</li><li>SQL</li></ul>
+        <ul class="tags"><li>C#</li><li>ASP.NET Core MVC</li><li>EF Core</li><li>Oracle</li><li>SQL</li><li>Razor</li><li>Bootstrap</li></ul>
       </article>
 
       <article class="exp">
@@ -632,11 +638,22 @@
           <span class="exp-date">Feb 2026 – Apr 2026</span>
         </div>
         <p class="exp-org">AcmeGrade <span>· Remote</span></p>
+
+        <p class="exp-sub">Used-car price prediction</p>
         <ul class="points">
-          <li>Built a used-car price model on about 5,000 CarDekho listings: log-transformed skewed columns, one-hot encoded brand and model, and tuned XGBoost with 5-fold cross-validation to an R² of 0.85 (linear baseline 0.72).</li>
-          <li>Trained and compared four classifiers for Parkinson's detection on 195 voice recordings. Both models are deployed as Streamlit apps.</li>
+          <li>Cleaned 15,411 CarDekho listings: stripped units from text columns with regex, handled missing values, removed 1,386 price outliers with the IQR rule, derived car age, and one-hot encoded brand, model, fuel, seller and transmission into 125 features.</li>
+          <li>Log-transformed skewed columns such as price and kilometres driven, then compared six regressors on an 80/20 split: linear, ridge, lasso, decision tree, random forest and XGBoost.</li>
+          <li>Tuned XGBoost with 5-fold randomised search. It reached an R² of 0.83 against 0.74 for linear regression, with 20% lower RMSE on log price, and scored between 0.82 and 0.83 on every cross-validation fold.</li>
+          <li>Built a Streamlit app that takes a car&#39;s specs and returns an estimated price from the tuned model.</li>
         </ul>
-        <ul class="tags"><li>Python</li><li>XGBoost</li><li>scikit-learn</li><li>pandas</li><li>Streamlit</li></ul>
+
+        <p class="exp-sub">Parkinson&#39;s disease detection</p>
+        <ul class="points">
+          <li>Worked with the UCI voice dataset (195 recordings, 22 features). About 75% of the recordings come from people with Parkinson&#39;s, so I used a stratified 80/20 split, fitted the scaler on training data only, and treated recall as the main metric.</li>
+          <li>Compared seven classifiers. An SVM with an RBF kernel reached 92.3% accuracy and 1.00 recall on the 39-recording test set. I also tuned SVM with grid search and XGBoost with randomised search, and ranked features by importance (pitch period entropy and spread1 came out on top).</li>
+          <li>Built a Streamlit app that takes the 22 voice measurements and returns a prediction.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>XGBoost</li><li>Streamlit</li><li>Jupyter</li></ul>
       </article>
 
     </div>
