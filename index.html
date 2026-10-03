@@ -139,6 +139,7 @@
       background: var(--bg2); border: 1px solid var(--line); border-radius: 18px;
       overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.2s, box-shadow 0.2s;
     }
+    .feat { scroll-margin-top: calc(var(--nav-h) + 16px); }
     .feat:hover { border-color: rgba(74,92,64,0.35); box-shadow: 0 10px 36px rgba(0,0,0,0.07); }
     .feat-img { aspect-ratio: 16 / 8; background: var(--bg3); border-bottom: 1px solid var(--line); overflow: hidden; }
     .feat-img img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
@@ -189,17 +190,16 @@
     .skill-group.full { grid-column: 1 / -1; }
 
     /* ── ABOUT ── */
-    .about-grid { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: start; }
     .about-text > p { font-size: 0.98rem; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
-    .about-text > p strong { color: var(--text); font-weight: 600; }
-    .side-card { background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
-    .side-card h3 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
-    .side-card ul { list-style: none; display: flex; flex-direction: column; }
-    .side-card li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 0.86rem; color: var(--muted); line-height: 1.55; }
-    .side-card li:first-child { padding-top: 0; }
-    .side-card li:last-child { border-bottom: none; padding-bottom: 0; }
-    .side-card li b { display: block; color: var(--text); font-weight: 600; font-size: 0.9rem; }
-    .side-card li a { color: var(--green); font-weight: 600; }
+    .about-text { max-width: 760px; }
+    .about-text > p a { color: var(--green); font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .sec-edu { border-top: 1px solid var(--line); }
+    .facts-title { font-family: var(--serif); font-weight: 400; font-size: 1.4rem; margin: 40px 0 14px; }
+    .facts { border-top: 1px solid var(--line); max-width: 900px; }
+    .facts > div { display: grid; grid-template-columns: 200px 1fr; gap: 6px 24px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .facts dt { font-weight: 600; font-size: 0.92rem; color: var(--text); }
+    .facts dd { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+    .facts dd a { color: var(--green); font-weight: 600; }
 
     /* ── CONTACT ── */
     .contact-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
@@ -238,7 +238,6 @@
       .hero-inner { gap: 40px; }
       .hero-photo { width: 220px; height: 275px; }
       .feat-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 24px; }
       .contact-cards { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 860px) {
@@ -273,6 +272,7 @@
       .feat h3 { font-size: 1.3rem; }
       .exp { padding: 22px 18px; }
       .skills-grid { grid-template-columns: 1fr; }
+      .facts > div { grid-template-columns: 1fr; }
       .skill-group { padding: 20px 18px; }
       .contact-cards { grid-template-columns: 1fr; }
       .contact-form-wrap { padding: 22px 18px; }
@@ -385,7 +385,7 @@
 
     <div class="feat-grid">
 
-      <article class="feat">
+      <article class="feat" id="proj-classledger">
         <div class="feat-img">
           <img src="screenshots/classledger.webp" alt="ClassLedger admin dashboard with student, class and attendance counts" width="1200" height="550" loading="lazy" decoding="async" />
         </div>
@@ -404,7 +404,7 @@
         </div>
       </article>
 
-      <article class="feat">
+      <article class="feat" id="proj-kubeoracle">
         <div class="feat-img">
           <img src="screenshots/kubeoracle.webp" alt="KubeOracle dashboard showing cluster health, a service dependency graph and live alerts (mock data)" width="1200" height="660" loading="lazy" decoding="async" />
         </div>
@@ -425,7 +425,7 @@
       </article>
 
 
-      <article class="feat">
+      <article class="feat" id="proj-paperpilot">
         <div class="feat-img">
           <img src="screenshots/paperpilot.webp" alt="PaperPilot chat screen with suggested questions and a faithfulness counter" width="1200" height="596" loading="lazy" decoding="async" />
         </div>
@@ -446,7 +446,7 @@
         </div>
       </article>
 
-      <article class="feat">
+      <article class="feat" id="proj-studygenie">
         <div class="feat-img">
           <img src="screenshots/studygenie.webp" alt="StudyGenie dashboard listing an uploaded document and quiz statistics" width="1200" height="548" loading="lazy" decoding="async" />
         </div>
@@ -486,7 +486,7 @@
         </div>
       </article>
 
-      <article class="feat">
+      <article class="feat" id="proj-legacy-modernizer">
         <div class="feat-img feat-img--diagram">
           <svg viewBox="0 0 600 300" role="img" aria-label="Agent loop: translate, execute against tests, evaluate, then either verified, repair and retry, or escalate to human review after 5 attempts">
             <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4a5c40"/></marker></defs>
@@ -659,6 +659,43 @@
   </div>
 </section>
 
+<!-- ── EDUCATION ── -->
+<section id="education" class="sec sec-edu">
+  <div class="wrap">
+    <div class="sec-header">
+      <p class="sec-label">Education</p>
+      <h2 class="sec-title">Academics</h2>
+    </div>
+    <div class="exp-list">
+
+      <article class="exp">
+        <div class="exp-head">
+          <h3>B.Tech, Computer Science and Engineering</h3>
+          <span class="exp-date">Aug 2023 – Jun 2027</span>
+        </div>
+        <p class="exp-org">KIIT University <span>· Bhubaneswar, Odisha</span></p>
+        <ul class="points">
+          <li>CGPA 7.57/10, no active backlogs.</li>
+          <li>Coursework: data structures and algorithms, object-oriented programming, DBMS, operating systems and computer networks.</li>
+        </ul>
+      </article>
+
+      <article class="exp">
+        <div class="exp-head">
+          <h3>Class XII and Class X</h3>
+          <span class="exp-date">2019 – 2023</span>
+        </div>
+        <p class="exp-org">DAV Public School <span>· Paradeep, Odisha</span></p>
+        <ul class="points">
+          <li>Class XII (2023): 83%.</li>
+          <li>Class X (2021): 80.17%.</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── SKILLS ── -->
 <section id="skills" class="sec sec-alt">
   <div class="wrap">
@@ -701,38 +738,25 @@
 
 <!-- ── ABOUT ── -->
 <section id="about" class="sec">
-  <div class="wrap about-grid">
+  <div class="wrap">
+    <div class="sec-header">
+      <p class="sec-label">About</p>
+      <h2 class="sec-title">Background</h2>
+    </div>
     <div class="about-text">
-      <div class="sec-header">
-        <p class="sec-label">About</p>
-        <h2 class="sec-title">Background</h2>
-      </div>
-      <p>I'm in my final year of a <strong>B.Tech in Computer Science at KIIT, Bhubaneswar</strong>. Most of what I build is in Python: retrieval pipelines, classical ML models, and the FastAPI or Flask services around them. The IFFCO internship added C#, ASP.NET Core and Oracle.</p>
-      <p>I like work where the output can be checked. In PaperPilot that meant testing the LLM judge against hand-labelled answers before trusting its scores. In the depression study it meant running all 14 models through the same preprocessing so the comparison was fair.</p>
+      <p>I&#39;m a final-year B.Tech Computer Science student at KIIT, Bhubaneswar, graduating in 2027. My main language is Python: I build retrieval-augmented generation (RAG) pipelines, train and evaluate ML models, and serve them through FastAPI or Flask. My internship at IFFCO added C#, ASP.NET Core and Oracle to that.</p>
+      <p>That internship produced <a href="#proj-classledger">ClassLedger</a>, a role-based student records app that I later moved to .NET 8. On the AI side, <a href="#proj-paperpilot">PaperPilot</a> is a RAG assistant that checks every answer for faithfulness before showing it, and <a href="#proj-studygenie">StudyGenie</a> turns PDFs into summaries, a document chatbot and quizzes. On <a href="#proj-kubeoracle">KubeOracle</a>, a team project for ABB Accelerator 2026, I built the MLOps layer: experiment tracking, a model registry and drift checks.</p>
+      <p>I care about results that can be verified. In PaperPilot I tested the LLM judge against hand-labelled answers before relying on its scores, and in my depression-prediction research I ran all 14 models through the same preprocessing pipeline so the comparison was fair.</p>
+      <p>I&#39;m currently working on <a href="#proj-legacy-modernizer">Legacy Modernizer</a>, a six-person project that migrates Python 2 code to Python 3. My part is the agent that translates each module, runs it against tests, and repairs or escalates it when the tests fail.</p>
     </div>
-    <div>
-      <div class="side-card">
-        <h3>Education</h3>
-        <ul>
-          <li><b>KIIT University, Bhubaneswar</b>B.Tech, Computer Science and Engineering · 2023–2027 · CGPA 7.57/10</li>
-          <li><b>DAV Public School, Paradeep</b>Class XII: 83% (2023) · Class X: 80.17% (2021)</li>
-        </ul>
-      </div>
-      <div class="side-card">
-        <h3>Achievements and open source</h3>
-        <ul>
-          <li><b>EY Techathon 6.0</b>Reached Stage 2, top 50 of 2,000+ teams.</li>
-          <li><b>GSSoC 2026 contributor</b>Wrote a fix for Checkora issue #166 that locks player input while the chess AI is computing its move (<a href="https://github.com/Checkora/Checkora/pull/257" target="_blank" rel="noopener noreferrer">PR #257</a>).</li>
-        </ul>
-      </div>
-      <div class="side-card">
-        <h3>Certifications</h3>
-        <ul>
-          <li>Agentic AI developer workshop, UiPath × USC KIIT</li>
-          <li>Forage job simulations: Deloitte Australia Technology, Tata Data Visualisation, AWS Solutions Architecture</li>
-        </ul>
-      </div>
-    </div>
+
+    <h3 class="facts-title">Achievements and certifications</h3>
+    <dl class="facts">
+      <div><dt>EY Techathon 6.0</dt><dd>Reached Stage 2, top 50 of 2,000+ teams.</dd></div>
+      <div><dt>GSSoC 2026</dt><dd>Open-source contributor. Wrote a fix for Checkora issue #166 that locks player input while the chess AI is computing its move (<a href="https://github.com/Checkora/Checkora/pull/257" target="_blank" rel="noopener noreferrer">PR #257</a>).</dd></div>
+      <div><dt>Workshop</dt><dd>Agentic AI developer workshop, UiPath × USC KIIT.</dd></div>
+      <div><dt>Job simulations</dt><dd>Forage: Deloitte Australia Technology, Tata Data Visualisation, AWS Solutions Architecture.</dd></div>
+    </dl>
   </div>
 </section>
 
