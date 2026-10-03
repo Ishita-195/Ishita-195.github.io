@@ -157,15 +157,12 @@
     .proj-link:hover { border-color: var(--green); color: var(--green); }
     .proj-link.primary { background: var(--green); border-color: var(--green); color: #fff; }
     .proj-link.primary:hover { background: var(--green2); color: #fff; }
-    .more-title { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; margin: 56px 0 8px; }
-    .more-list { list-style: none; border-top: 1px solid var(--line); }
-    .more-list > li { display: grid; grid-template-columns: 1fr auto; gap: 8px 32px; align-items: start; padding: 20px 0; border-bottom: 1px solid var(--line); }
-    .more-list h4 { font-size: 1rem; font-weight: 600; }
-    .more-list h4 span { font-weight: 500; color: var(--green); font-size: 0.8rem; margin-left: 6px; }
-    .more-list p { font-size: 0.88rem; color: var(--muted); margin-top: 3px; max-width: 720px; }
-    .more-links { display: flex; gap: 16px; white-space: nowrap; padding-top: 2px; }
-    .more-links a { font-size: 0.82rem; font-weight: 600; color: var(--green); text-decoration: none; }
-    .more-links a:hover { text-decoration: underline; }
+    .feat-img--chart { background: #fff; }
+    .feat-img--chart img { object-fit: contain; object-position: center; padding: 8px; }
+    .feat-img--diagram { background: var(--bg3); display: flex; align-items: center; justify-content: center; padding: 10px 16px; }
+    .feat-img--diagram svg { width: 100%; height: 100%; }
+    .feat-img--pending { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--bg3), #ddd6c8); }
+    .feat-img--pending span { font-family: var(--serif); font-size: 1.6rem; color: rgba(23,22,15,0.45); padding: 0 24px; text-align: center; }
 
     /* ── EXPERIENCE ── */
     .exp-list { display: flex; flex-direction: column; gap: 20px; }
@@ -273,7 +270,6 @@
       .sec-header { margin-bottom: 30px; }
       .feat-body { padding: 18px; }
       .feat h3 { font-size: 1.3rem; }
-      .more-list > li { grid-template-columns: 1fr; }
       .exp { padding: 22px 18px; }
       .skills-grid { grid-template-columns: 1fr; }
       .skill-group { padding: 20px 18px; }
@@ -361,7 +357,7 @@
 <section id="stats" aria-label="Highlights">
   <div class="wrap stats-inner">
     <a class="stat" href="#projects">
-      <span class="stat-n">8</span>
+      <span class="stat-n">9</span>
       <span class="stat-text">
         <span class="stat-label">Projects</span>
         <span class="stat-sub">RAG apps, ML models and full-stack web</span>
@@ -390,21 +386,19 @@
 
       <article class="feat">
         <div class="feat-img">
-          <img src="screenshots/paperpilot.webp" alt="PaperPilot chat screen with suggested questions and a faithfulness counter" width="1200" height="596" loading="lazy" decoding="async" />
+          <img src="screenshots/classledger.webp" alt="ClassLedger admin dashboard with student, class and attendance counts" width="1200" height="550" loading="lazy" decoding="async" />
         </div>
         <div class="feat-body">
-          <p class="feat-meta">RAG assistant · Solo</p>
-          <h3>PaperPilot</h3>
-          <p class="feat-problem">An ML question-answering assistant that answers only from its knowledge base and checks each answer before showing it.</p>
+          <p class="feat-meta">Web app · Solo · Built during IFFCO internship</p>
+          <h3>ClassLedger</h3>
+          <p class="feat-problem">A student result and attendance system for schools, with separate views for admins, teachers and students.</p>
           <ul class="built">
-            <li>LangGraph agent: query router, ChromaDB retrieval (top 6), cross-encoder reranking (top 3), grounded answer, then an LLM judge that scores faithfulness and retries any answer below 0.7.</li>
-            <li>FastAPI backend with REST and WebSocket streaming, a React dashboard that runs the evaluation suite, and a Streamlit version for the public demo. Docker and GitHub Actions CI.</li>
+            <li>ASP.NET Core MVC (C#) with session-based role checks on every action, and POST requests with anti-forgery tokens for every change.</li>
+            <li>First built on Oracle during the internship. Later moved from .NET Core 2.1 to .NET 8 with EF Core and SQLite, and added an admin analytics page with four Chart.js reports built on SQL GROUP BY queries.</li>
           </ul>
-          <p class="feat-result"><b>Result:</b> the judge agreed with all 16 hand-labelled answers. Reranking raised context precision from 0.79 to 0.83, and the retry step raised mean faithfulness from 0.82 to 0.97.</p>
-          <ul class="tags"><li>Python</li><li>LangGraph</li><li>ChromaDB</li><li>Sentence-Transformers</li><li>Groq API</li><li>FastAPI</li><li>React</li><li>Docker</li></ul>
+          <ul class="tags"><li>C#</li><li>ASP.NET Core MVC</li><li>EF Core</li><li>Oracle</li><li>SQLite</li><li>Chart.js</li><li>Docker</li></ul>
           <div class="proj-links">
-            <a class="proj-link primary" href="https://paperpilot-rag.streamlit.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
-            <a class="proj-link" href="https://github.com/Ishita-195/PaperPilot" target="_blank" rel="noopener noreferrer">Code ↗</a>
+            <a class="proj-link" href="https://github.com/Ishita-195/ClassLedger" target="_blank" rel="noopener noreferrer">Code ↗</a>
           </div>
         </div>
       </article>
@@ -425,6 +419,28 @@
           <ul class="tags"><li>XGBoost</li><li>MLflow</li><li>FastAPI</li><li>React</li><li>Prometheus</li><li>Kubernetes</li><li>GitHub Actions</li></ul>
           <div class="proj-links">
             <a class="proj-link" href="https://github.com/Ishita-195/kubeoracle" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="feat">
+        <div class="feat-img">
+          <img src="screenshots/paperpilot.webp" alt="PaperPilot chat screen with suggested questions and a faithfulness counter" width="1200" height="596" loading="lazy" decoding="async" />
+        </div>
+        <div class="feat-body">
+          <p class="feat-meta">RAG assistant · Solo</p>
+          <h3>PaperPilot</h3>
+          <p class="feat-problem">An ML question-answering assistant that answers only from its knowledge base and checks each answer before showing it.</p>
+          <ul class="built">
+            <li>LangGraph agent: query router, ChromaDB retrieval (top 6), cross-encoder reranking (top 3), grounded answer, then an LLM judge that scores faithfulness and retries any answer below 0.7.</li>
+            <li>FastAPI backend with REST and WebSocket streaming, a React dashboard that runs the evaluation suite, and a Streamlit version for the public demo. Docker and GitHub Actions CI.</li>
+          </ul>
+          <p class="feat-result"><b>Result:</b> the judge agreed with all 16 hand-labelled answers. Reranking raised context precision from 0.79 to 0.83, and the retry step raised mean faithfulness from 0.82 to 0.97.</p>
+          <ul class="tags"><li>Python</li><li>LangGraph</li><li>ChromaDB</li><li>Sentence-Transformers</li><li>Groq API</li><li>FastAPI</li><li>React</li><li>Docker</li></ul>
+          <div class="proj-links">
+            <a class="proj-link primary" href="https://paperpilot-rag.streamlit.app" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+            <a class="proj-link" href="https://github.com/Ishita-195/PaperPilot" target="_blank" rel="noopener noreferrer">Code ↗</a>
           </div>
         </div>
       </article>
@@ -450,68 +466,141 @@
       </article>
 
       <article class="feat">
-        <div class="feat-img">
-          <img src="screenshots/classledger.webp" alt="ClassLedger admin dashboard with student, class and attendance counts" width="1200" height="550" loading="lazy" decoding="async" />
+        <!-- TODO: screenshot from Ishita -->
+        <div class="feat-img feat-img--pending" aria-hidden="true"><span>RegPilot</span></div>
+        <div class="feat-body">
+          <p class="feat-meta">RAG prototype · Team of 4</p>
+          <h3>RegPilot</h3>
+          <p class="feat-problem">A compliance assistant for Indian banks that turns RBI circulars into structured, searchable records.</p>
+          <ul class="built">
+            <li>Ingestion pipeline: extracts text from RBI circular PDFs with pypdf, pulls out the reference number, date, category and requirement sentences with regex rules, rates severity by keyword, and indexes the records in FAISS.</li>
+            <li>FastAPI backend and a React dashboard deployed on Vercel.</li>
+          </ul>
+          <p class="feat-result"><b>Status:</b> prototype. Five real RBI circulars run through the pipeline end to end. Semantic embeddings, the live scraper and LLM summaries are not connected yet, and the dashboard&#39;s task and alert panels use sample data.</p>
+          <ul class="tags"><li>Python</li><li>FastAPI</li><li>FAISS</li><li>pypdf</li><li>React</li></ul>
+          <div class="proj-links">
+            <a class="proj-link primary" href="https://regpilot-two.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+            <a class="proj-link" href="https://github.com/Ishita-195/regpilot" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="feat">
+        <div class="feat-img feat-img--diagram">
+          <svg viewBox="0 0 600 300" role="img" aria-label="Agent loop: translate, execute against tests, evaluate, then either verified, repair and retry, or escalate to human review after 5 attempts">
+            <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#4a5c40"/></marker></defs>
+            <g font-family="Inter, system-ui, sans-serif" font-size="15" text-anchor="middle">
+              <g fill="#f3efe6" stroke="#4a5c40" stroke-width="1.5">
+                <rect x="20" y="40" width="130" height="54" rx="10"/>
+                <rect x="235" y="40" width="130" height="54" rx="10"/>
+                <rect x="450" y="40" width="130" height="54" rx="10"/>
+                <rect x="235" y="200" width="130" height="54" rx="10"/>
+                <rect x="450" y="200" width="130" height="54" rx="10"/>
+              </g>
+              <rect x="450" y="122" width="130" height="44" rx="10" fill="#4a5c40"/>
+              <g fill="#17160f">
+                <text x="85" y="66">Translate</text><text x="85" y="84" font-size="12" fill="#5c5850">Py2 to Py3 (LLM)</text>
+                <text x="300" y="66">Execute</text><text x="300" y="84" font-size="12" fill="#5c5850">against tests</text>
+                <text x="515" y="66">Evaluate</text><text x="515" y="84" font-size="12" fill="#5c5850">pass rate, coverage</text>
+                <text x="300" y="226">Repair</text><text x="300" y="244" font-size="12" fill="#5c5850">traceback to LLM</text>
+                <text x="515" y="226">Escalate</text><text x="515" y="244" font-size="12" fill="#5c5850">human review</text>
+              </g>
+              <text x="515" y="149" fill="#ffffff" font-weight="600">Verified</text>
+              <g fill="none" stroke="#4a5c40" stroke-width="1.5" marker-end="url(#arr)">
+                <path d="M150 67H233"/>
+                <path d="M365 67H448"/>
+                <path d="M515 94V120"/>
+                <path d="M470 94C440 150 400 190 367 212"/>
+                <path d="M300 200V96"/>
+                <path d="M572 94C598 130 598 175 572 198"/>
+              </g>
+              <g font-size="11.5" fill="#4a5c40">
+                <text x="523" y="112" text-anchor="start">pass</text>
+                <text x="388" y="165">tests fail</text>
+                <text x="596" y="285" text-anchor="end">escalate after 5 failed tries</text>
+              </g>
+            </g>
+          </svg>
         </div>
         <div class="feat-body">
-          <p class="feat-meta">Web app · Solo · Built during IFFCO internship</p>
-          <h3>ClassLedger</h3>
-          <p class="feat-problem">A student result and attendance system for schools, with separate views for admins, teachers and students.</p>
+          <p class="feat-meta">AI agent · Team of 6 · In progress</p>
+          <h3>Legacy Modernizer</h3>
+          <p class="feat-problem">A team system that migrates Python 2 codebases to Python 3 and accepts a translation only when it passes tests generated from the original code.</p>
           <ul class="built">
-            <li>ASP.NET Core MVC (C#) with session-based role checks on every action, and POST requests with anti-forgery tokens for every change.</li>
-            <li>First built on Oracle during the internship. Later moved from .NET Core 2.1 to .NET 8 with EF Core and SQLite, and added an admin analytics page with four Chart.js reports built on SQL GROUP BY queries.</li>
+            <li>My part is the translation and repair agent, one of the system&#39;s seven modules: a LangGraph loop that translates a module, runs it against the tests, feeds failures back to the model for repair, and sends the module to a human review queue after 5 failed attempts.</li>
+            <li>Scores each migration for confidence from test pass rate, coverage, number of repairs and old-versus-new output agreement. Runs on a local Ollama model (qwen2.5-coder) and falls back to the Groq API on machines with under 8 GB of RAM.</li>
           </ul>
-          <ul class="tags"><li>C#</li><li>ASP.NET Core MVC</li><li>EF Core</li><li>Oracle</li><li>SQLite</li><li>Chart.js</li><li>Docker</li></ul>
+          <p class="feat-result"><b>Status:</b> the agent loop and its tests are written. Code execution is stubbed with a syntax check until the team&#39;s sandbox module is connected, so there are no migration results yet.</p>
+          <ul class="tags"><li>Python</li><li>LangGraph</li><li>Ollama</li><li>Groq API</li><li>pytest</li></ul>
           <div class="proj-links">
-            <a class="proj-link" href="https://github.com/Ishita-195/ClassLedger" target="_blank" rel="noopener noreferrer">Code ↗</a>
+            <a class="proj-link" href="https://github.com/Ishita-195/legacy-modernizer" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="feat">
+        <!-- TODO: screenshot from Ishita -->
+        <div class="feat-img feat-img--pending" aria-hidden="true"><span>Used-car price prediction</span></div>
+        <div class="feat-body">
+          <p class="feat-meta">Regression · Solo · AcmeGrade internship</p>
+          <h3>Used-car price prediction</h3>
+          <p class="feat-problem">Estimates the resale price of a used car in India from its specs, age and mileage.</p>
+          <ul class="built">
+            <li>Cleaned about 5,000 CarDekho listings, log-transformed price and kilometres driven, derived car age, and one-hot encoded brand, model, fuel and transmission, turning 13 raw columns into 60+ features.</li>
+            <li>Compared a linear-regression baseline with XGBoost, tuned XGBoost with 5-fold cross-validation, and served the final model in a Streamlit app.</li>
+          </ul>
+          <p class="feat-result"><b>Result:</b> R² of 0.85 against 0.72 for linear regression. RMSE fell 28%, from ₹5.10 lakh to ₹3.67 lakh.</p>
+          <ul class="tags"><li>Python</li><li>pandas</li><li>scikit-learn</li><li>XGBoost</li><li>Streamlit</li></ul>
+          <div class="proj-links">
+            <a class="proj-link primary" href="https://cardekho-price-predictor.streamlit.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+            <a class="proj-link" href="https://github.com/Ishita-195/used-cars-cost-prediction" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="feat">
+        <!-- TODO: screenshot from Ishita -->
+        <div class="feat-img feat-img--pending" aria-hidden="true"><span>Parkinson&#39;s disease detection</span></div>
+        <div class="feat-body">
+          <p class="feat-meta">Classification · Solo · AcmeGrade internship</p>
+          <h3>Parkinson&#39;s disease detection</h3>
+          <p class="feat-problem">Screens for Parkinson&#39;s disease from 22 voice measurements such as jitter, shimmer and pitch entropy.</p>
+          <ul class="built">
+            <li>EDA, scaling and feature selection on the UCI voice dataset: 195 recordings, 147 of them from people with Parkinson&#39;s.</li>
+            <li>Compared seven classifiers (logistic regression, SVM, random forest, XGBoost, KNN, decision tree and naive Bayes), tuned SVM and XGBoost with grid and randomised search, and built a Streamlit app that takes voice measurements and returns a prediction.</li>
+          </ul>
+          <p class="feat-result"><b>Result:</b> the best model (SVM with an RBF kernel) reached 92.3% accuracy, 1.00 recall and 0.95 F1 on a 39-recording test split. The test split is small, and the app is for learning only.</p>
+          <ul class="tags"><li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>pandas</li><li>Streamlit</li></ul>
+          <div class="proj-links">
+            <a class="proj-link primary" href="https://parkinsons-detection-app.streamlit.app/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+            <a class="proj-link" href="https://github.com/Ishita-195/parkinsons-disease-detection-ml" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="feat">
+        <div class="feat-img feat-img--chart">
+          <img src="screenshots/depression.webp" alt="Bar chart comparing accuracy, precision, recall and F1 for 14 models" width="984" height="410" loading="lazy" decoding="async" />
+        </div>
+        <div class="feat-body">
+          <p class="feat-meta">ML research · Co-authored paper (under review)</p>
+          <h3>Student depression prediction</h3>
+          <p class="feat-problem">Predicts depression risk from a survey of 27,901 students covering academic pressure, CGPA, sleep, diet, financial stress and family history.</p>
+          <ul class="built">
+            <li>Built one preprocessing pipeline (one-hot encoding, scaling and feature selection) and ran 14 models through it, from logistic regression and KNN to XGBoost and stacking ensembles.</li>
+            <li>Tuned the strongest models with grid and randomised search, adjusted the decision threshold, and wrote the comparison up as a conference paper.</li>
+          </ul>
+          <p class="feat-result"><b>Result:</b> accuracy ranged from 71.1% (KNN) to 85.3%, and the best model reached an F1 of 87.8%.</p>
+          <ul class="tags"><li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>pandas</li><li>Jupyter</li></ul>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/Ishita-195/depression-detection-ml" target="_blank" rel="noopener noreferrer">Code ↗</a>
           </div>
         </div>
       </article>
 
     </div>
 
-    <h3 class="more-title">Other projects</h3>
-    <ul class="more-list">
-      <li>
-        <div>
-          <h4>Used-car price prediction <span>AcmeGrade internship</span></h4>
-          <p>XGBoost regression on about 5,000 CarDekho listings, with 13 raw columns engineered into 60+ features. R² of 0.85 against 0.72 for linear regression (RMSE down 28%). Streamlit app.</p>
-        </div>
-        <div class="more-links">
-          <a href="https://cardekho-price-predictor.streamlit.app/" target="_blank" rel="noopener noreferrer">Demo ↗</a>
-          <a href="https://github.com/Ishita-195/used-cars-cost-prediction" target="_blank" rel="noopener noreferrer">Code ↗</a>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h4>Student depression prediction <span>Research paper</span></h4>
-          <p>Compared 14 models under the same preprocessing, with stacking ensembles and hyperparameter search. Accuracy ranged from 71% to 85%; the paper is in the repo.</p>
-        </div>
-        <div class="more-links">
-          <a href="https://github.com/Ishita-195/depression-detection-ml" target="_blank" rel="noopener noreferrer">Code ↗</a>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h4>Parkinson's disease detection</h4>
-          <p>Four classifiers tuned with grid search on the UCI voice dataset (195 recordings), served through a Streamlit app.</p>
-        </div>
-        <div class="more-links">
-          <a href="https://parkinsons-detection-app.streamlit.app/" target="_blank" rel="noopener noreferrer">Demo ↗</a>
-          <a href="https://github.com/Ishita-195/parkinsons-disease-detection-ml" target="_blank" rel="noopener noreferrer">Code ↗</a>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h4>RegPilot <span>Team prototype</span></h4>
-          <p>Parses RBI circular PDFs into structured records (reference number, date, requirements) and indexes them in FAISS behind a FastAPI and React app. Semantic search and LLM summaries are still in progress.</p>
-        </div>
-        <div class="more-links">
-          <a href="https://regpilot-two.vercel.app/" target="_blank" rel="noopener noreferrer">Demo ↗</a>
-          <a href="https://github.com/Ishita-195/regpilot" target="_blank" rel="noopener noreferrer">Code ↗</a>
-        </div>
-      </li>
-    </ul>
   </div>
 </section>
 
